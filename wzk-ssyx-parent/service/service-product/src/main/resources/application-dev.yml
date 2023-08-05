@@ -1,0 +1,37 @@
+server:
+  port: 8203
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-enums-package: com.atguigu.ssyx.enums
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shequ-product?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 223133
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirm-type: CORRELATED  #发布确认模式，消息是否被成功发送到交换机
+    publisher-returns: true
+    listener:
+      simple:
+        prefetch: 1
+        concurrency: 3
+        acknowledge-mode: manual
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+aliyun:
+  endpoint: oss-cn-nanjing.aliyuncs.com
+  keyid: LTAI5tS9t4Q9RPkjtm3cBH5K
+  keysecret: rSTuMvgb7q5S5H4DpH67ZAUatWrTcP
+  bucketname: wzk-youxuan
