@@ -19,9 +19,9 @@ public class ThreadPoolConfig {
     @Bean
     public ThreadPoolExecutor threadPoolExecutor(){
         ThreadPoolExecutor executor = new ThreadPoolExecutor(
-                2,
-                5,
-                2,
+                2,//线程池常驻核心线程数
+                5,//线程池中能容纳同时执行的最大线程数，必须大于1
+                2,//多余空闲线程存活超过该数时，空闲时间达到keepAliveTime时，多余线程会被销毁
                 TimeUnit.SECONDS,
                 new ArrayBlockingQueue<>(3),
                 Executors.defaultThreadFactory(),
